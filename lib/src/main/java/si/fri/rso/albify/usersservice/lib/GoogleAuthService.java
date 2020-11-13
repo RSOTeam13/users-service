@@ -9,7 +9,7 @@ import java.util.Collections;
 
 public class GoogleAuthService {
 
-    private static final String GOOGLE_CLIENT_ID = "692688683460-skp3av7map34n21rpnfl391df4otu99h.apps.googleusercontent.com";
+    private static final String GOOGLE_CLIENT_ID = "";
 
     public static GoogleIdToken.Payload getPayload (String tokenString) {
         try {
