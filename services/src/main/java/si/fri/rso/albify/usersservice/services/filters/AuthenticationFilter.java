@@ -9,11 +9,13 @@ import com.auth0.jwt.interfaces.DecodedJWT;
 
 import javax.ws.rs.container.ContainerRequestContext;
 import javax.ws.rs.container.ContainerRequestFilter;
+import javax.ws.rs.core.Response;
 import javax.ws.rs.ext.Provider;
 import java.io.IOException;
 import java.util.Map;
 
 @Provider
+@Authenticate
 public class AuthenticationFilter implements ContainerRequestFilter {
 
     @Override
@@ -38,6 +40,9 @@ public class AuthenticationFilter implements ContainerRequestFilter {
             }
         }
 
+        if (userId == null) {
+            ctx.abortWith(Response.status(Response.Status.UNAUTHORIZED).build());
+        }
         ctx.setProperty("userId", userId);
     }
 }

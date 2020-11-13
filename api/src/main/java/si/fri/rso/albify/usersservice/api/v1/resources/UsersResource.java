@@ -1,14 +1,13 @@
 package si.fri.rso.albify.usersservice.api.v1.resources;
 
 import org.bson.types.ObjectId;
-import org.glassfish.jersey.server.ContainerRequest;
 import si.fri.rso.albify.usersservice.lib.AuthResponse;
 import si.fri.rso.albify.usersservice.lib.GoogleToken;
 import si.fri.rso.albify.usersservice.lib.JWTService;
 import si.fri.rso.albify.usersservice.models.converters.UserConverter;
 import si.fri.rso.albify.usersservice.models.entities.UserEntity;
 import si.fri.rso.albify.usersservice.services.beans.UsersBean;
-import si.fri.rso.albify.usersservice.services.interceptors.Authenticate;
+import si.fri.rso.albify.usersservice.services.filters.Authenticate;
 
 import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
