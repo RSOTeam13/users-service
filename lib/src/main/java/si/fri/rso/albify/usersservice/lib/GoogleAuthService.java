@@ -9,7 +9,7 @@ import java.util.Collections;
 
 public class GoogleAuthService {
 
-    private static final String GOOGLE_CLIENT_ID = "";
+    private static final String GOOGLE_CLIENT_ID = "692688683460-skp3av7map34n21rpnfl391df4otu99h.apps.googleusercontent.com";
 
     public static GoogleIdToken.Payload getPayload (String tokenString) {
         try {
@@ -20,7 +20,6 @@ public class GoogleAuthService {
             GoogleIdToken token = verifier.verify(tokenString);
             if (token != null) {
                 GoogleIdToken.Payload payload = token.getPayload();
-                System.out.println(payload);
                 if (!GOOGLE_CLIENT_ID.equals(payload.getAudience())) {
                     return null;
                 } else if (!GOOGLE_CLIENT_ID.equals(payload.getAuthorizedParty())) {

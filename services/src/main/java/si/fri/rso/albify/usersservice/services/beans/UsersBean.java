@@ -44,7 +44,7 @@ public class UsersBean {
     /**
      * Returns user by its ID.
      * @param userId User ID.
-     * @return Image entity.
+     * @return User entity.
      */
     public UserEntity getUser(String userId) {
         try {
