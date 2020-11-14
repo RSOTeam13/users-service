@@ -1,4 +1,4 @@
-![Albify](https://raw.githubusercontent.com/anzemur/documentation/main/resources/logo-dark.png)
+![Albify](https://raw.githubusercontent.com/RSOTeam13/documentation/main/resources/logo-dark.png)
 # Albify - Users service
 
 ![Travis-Build](https://travis-ci.com/RSOTeam13/users-service.svg?branch=master)
