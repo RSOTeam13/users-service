@@ -1,0 +1,47 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: user-service-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: user-service
+  template:
+    metadata:
+      labels:
+        app: user-service
+    spec:
+      containers:
+        - image: anzemur/users-service-api:latest
+          name: user-service
+          ports:
+            - containerPort: 8080
+              name: server
+              protocol: TCP
+          env:
+            - name: DB_URL
+              valueFrom:
+                secretKeyRef:
+                  name: db-secret
+                  key: db-url
+            - name: GOOGLE_CLIENT_ID
+              valueFrom:
+                secretKeyRef:
+                  name: external-services
+                  key: google-id
+
+---
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: user-service
+spec:
+  type: LoadBalancer
+  ports:
+    - port: 80
+      protocol: TCP
+      targetPort: server
+  selector:
+    app: user-service
