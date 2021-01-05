@@ -1,5 +1,6 @@
 package si.fri.rso.albify.usersservice.api.v1.resources;
 
+import com.kumuluz.ee.cors.annotations.CrossOrigin;
 import org.bson.types.ObjectId;
 import si.fri.rso.albify.usersservice.lib.AuthResponse;
 import si.fri.rso.albify.usersservice.lib.GoogleToken;
@@ -22,6 +23,7 @@ import java.util.logging.Logger;
 @Path("/users")
 @Consumes(MediaType.APPLICATION_JSON)
 @Produces(MediaType.APPLICATION_JSON)
+@CrossOrigin(name = "users-resource")
 public class UsersResource {
 
     private Logger log = Logger.getLogger(UsersResource.class.getName());
