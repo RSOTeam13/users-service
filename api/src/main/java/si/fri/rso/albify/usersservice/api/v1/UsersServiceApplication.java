@@ -14,8 +14,8 @@ public class UsersServiceApplication extends Application {
     @Override
     public Set<Class<?>> getClasses() {
         final Set<Class<?>> resources = new HashSet<Class<?>>();
-        resources.add(AuthenticationFilter.class);
         resources.add(UsersResource.class);
+        resources.add(AuthenticationFilter.class);
 
         return resources;
     }
