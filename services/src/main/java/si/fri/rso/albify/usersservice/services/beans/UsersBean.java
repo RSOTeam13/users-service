@@ -14,6 +14,7 @@ import org.bson.types.ObjectId;
 import si.fri.rso.albify.usersservice.lib.GoogleAuthService;
 import si.fri.rso.albify.usersservice.models.entities.UserEntity;
 
+import javax.annotation.PreDestroy;
 import javax.enterprise.context.RequestScoped;
 import java.util.Date;
 import java.util.logging.Logger;
@@ -40,6 +41,17 @@ public class UsersBean {
     private MongoClient mongoClient = MongoClients.create(settings);
     private MongoDatabase database = mongoClient.getDatabase("albify");
     private MongoCollection<UserEntity> usersCollection = database.getCollection("users", UserEntity.class);
+
+    @PreDestroy
+    private void onDestroy() {
+        try {
+            mongoClient.close();
+        } catch (Exception e) {
+            log.severe("Error when closing user bean database connection.");
+            e.printStackTrace();
+        }
+    }
+
 
     /**
      * Returns user by its ID.
