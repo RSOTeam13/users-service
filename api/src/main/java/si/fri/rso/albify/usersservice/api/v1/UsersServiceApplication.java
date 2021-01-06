@@ -1,5 +1,6 @@
 package si.fri.rso.albify.usersservice.api.v1;
 
+import si.fri.rso.albify.usersservice.api.v1.resources.UsersResource;
 import si.fri.rso.albify.usersservice.services.filters.AuthenticationFilter;
 
 import javax.ws.rs.ApplicationPath;
@@ -14,6 +15,8 @@ public class UsersServiceApplication extends Application {
     public Set<Class<?>> getClasses() {
         final Set<Class<?>> resources = new HashSet<Class<?>>();
         resources.add(AuthenticationFilter.class);
+        resources.add(UsersResource.class);
+
         return resources;
     }
 }
